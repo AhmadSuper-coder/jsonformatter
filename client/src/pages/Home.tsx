@@ -1,7 +1,20 @@
+import { useState } from "react";
 import JsonFormatter from "@/components/JsonFormatter";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
+// This component will be used for AdSense placements
+const AdPlaceholder = ({ position }: { position: 'top' | 'bottom' | 'sidebar' }) => {
+  // When you get your AdSense code, replace this component with actual AdSense code
+  return (
+    <div className={`ad-placeholder ad-${position} border border-dashed border-muted-foreground/30 rounded-md bg-background/50 p-3 flex items-center justify-center h-full min-h-[90px] text-center text-muted-foreground text-sm`}>
+      <p>Ad Space - {position}</p>
+    </div>
+  );
+};
+
 export default function Home() {
+  const [showFullContent, setShowFullContent] = useState(false);
+  
   return (
     <div className="min-h-screen flex flex-col">
       <header className="bg-card shadow">
@@ -25,20 +38,116 @@ export default function Home() {
         </div>
       </header>
 
+      <div className="bg-primary/5 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-3xl md:text-4xl font-bold text-foreground">
+              JSON Formatter Tool
+            </h1>
+            <p className="mt-3 max-w-3xl mx-auto text-xl text-muted-foreground">
+              Format, minify, validate, compare and convert JSON with our free online tool
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AdPlaceholder position="top" />
+        </div>
+      </div>
+
       <main className="flex-1">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <JsonFormatter />
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            <div className="lg:col-span-3">
+              <JsonFormatter />
+            </div>
+            <div className="hidden lg:block">
+              <div className="sticky top-4">
+                <AdPlaceholder position="sidebar" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="bg-card border border-border rounded-lg p-6">
+            <h2 className="text-2xl font-bold text-foreground mb-4">About our JSON Formatter Tool</h2>
+            <div className={`prose dark:prose-invert max-w-none ${!showFullContent && 'line-clamp-4'}`}>
+              <p>
+                Our free online JSON Formatter provides a simple way to format, beautify, minify, validate, and analyze your JSON data. Whether you're a developer working with APIs, databases, or configuration files, our tool makes it easy to work with JSON.
+              </p>
+              <h3>Key Features:</h3>
+              <ul>
+                <li><strong>Pretty Print:</strong> Format your JSON with proper indentation and syntax highlighting for better readability.</li>
+                <li><strong>Minify:</strong> Remove all whitespace from your JSON to reduce file size for production use.</li>
+                <li><strong>Validate:</strong> Check if your JSON is valid with detailed error messages if issues are found.</li>
+                <li><strong>Compare:</strong> See the differences between two JSON objects side by side.</li>
+                <li><strong>JSON to CSV:</strong> Convert JSON arrays to CSV format for use in spreadsheet applications.</li>
+              </ul>
+              <p>
+                All processing happens in your browser, so your data never leaves your computer. Use our tool with confidence for sensitive data.
+              </p>
+              <h3>Why Use Our JSON Formatter?</h3>
+              <ul>
+                <li>Fast and responsive interface</li>
+                <li>Works on all devices (desktop, tablet, mobile)</li>
+                <li>Both light and dark themes available</li>
+                <li>No registration or sign-up required</li>
+                <li>Completely free to use</li>
+              </ul>
+              <p>Whether you're debugging an API response, cleaning up a configuration file, or just trying to understand JSON data better, our JSON Formatter Tool has you covered.</p>
+            </div>
+            {!showFullContent && (
+              <button 
+                onClick={() => setShowFullContent(true)}
+                className="mt-2 text-primary hover:text-primary/90 text-sm font-medium"
+              >
+                Read more
+              </button>
+            )}
+          </div>
+        </div>
+
+        <div className="py-4 mb-6">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <AdPlaceholder position="bottom" />
+          </div>
         </div>
       </main>
 
       <footer className="bg-card border-t border-border">
-        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-muted-foreground text-sm">
-            JSON Formatter Tool - A simple tool for working with JSON data. <span className="mx-1">|</span>
-            <a href="#" className="hover:text-foreground">Terms</a> <span className="mx-1">|</span>
-            <a href="#" className="hover:text-foreground">Privacy</a> <span className="mx-1">|</span>
-            <a href="#" className="hover:text-foreground">Contact</a>
-          </p>
+        <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+              <h3 className="text-lg font-medium text-foreground">JSON Formatter Tool</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                A free online tool to format, minify, validate, compare JSON data and convert JSON to CSV.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-medium text-foreground">Quick Links</h3>
+              <ul className="mt-2 space-y-2">
+                <li><a href="#" className="text-sm text-muted-foreground hover:text-foreground">Home</a></li>
+                <li><a href="#" className="text-sm text-muted-foreground hover:text-foreground">Features</a></li>
+                <li><a href="#" className="text-sm text-muted-foreground hover:text-foreground">Feedback</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-medium text-foreground">Legal</h3>
+              <ul className="mt-2 space-y-2">
+                <li><a href="#" className="text-sm text-muted-foreground hover:text-foreground">Privacy Policy</a></li>
+                <li><a href="#" className="text-sm text-muted-foreground hover:text-foreground">Terms of Service</a></li>
+                <li><a href="#" className="text-sm text-muted-foreground hover:text-foreground">Contact Us</a></li>
+              </ul>
+            </div>
+          </div>
+          <div className="mt-8 pt-8 border-t border-border">
+            <p className="text-center text-muted-foreground text-sm">
+              &copy; {new Date().getFullYear()} JSON Formatter Tool. All rights reserved.
+            </p>
+          </div>
         </div>
       </footer>
     </div>
