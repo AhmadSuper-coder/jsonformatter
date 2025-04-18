@@ -61,6 +61,9 @@ The application will be available at http://localhost:5000
 - `local-setup.js` - Setup script for local development
 - `local-dev-server.js` - Generated script for running locally
 - `start-local.bat`/`start-local.sh` - Startup scripts for Windows/Mac/Linux
+- `build-netlify.js` - Build script for Netlify deployment
+- `netlify.toml` - Configuration file for Netlify
+- `vite.config.netlify.ts` - Specialized Vite config for Netlify builds
 
 ## SEO Features
 
@@ -75,7 +78,38 @@ This application is optimized for search engines with:
 
 ## Deployment
 
+### Replit Deployment
 The application is configured for easy deployment on Replit. Simply click the "Deploy" button in the Replit interface.
+
+### Netlify Deployment (Free)
+You can deploy this application for free on Netlify by following these steps:
+
+1. Build the project for Netlify:
+   ```bash
+   node build-netlify.js
+   ```
+
+2. Install the Netlify CLI if you haven't already:
+   ```bash
+   npm install -g netlify-cli
+   ```
+
+3. Log in to your Netlify account (or create one if you don't have it):
+   ```bash
+   netlify login
+   ```
+
+4. Deploy a preview version:
+   ```bash
+   netlify deploy --dir=dist/public
+   ```
+
+5. Once you verify that the preview looks good, deploy to production:
+   ```bash
+   netlify deploy --dir=dist/public --prod
+   ```
+
+This will give you a free hosted version of your JSON Formatter Tool with a Netlify subdomain. You can also configure your own custom domain in the Netlify dashboard.
 
 ## License
 
