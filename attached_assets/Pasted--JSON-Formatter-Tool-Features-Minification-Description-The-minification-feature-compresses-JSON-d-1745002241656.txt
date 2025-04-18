@@ -1,0 +1,95 @@
+
+JSON Formatter Tool Features
+Minification:
+
+Description: The minification feature compresses JSON data by removing all unnecessary spaces, line breaks, and indentation, resulting in a compact format that is easier to transfer and store.
+
+Usage: Ideal for optimizing JSON data for storage or network transfer, especially when working with large datasets or APIs.
+
+Output Example:
+Input: { "name": "John", "age": 30, "city": "New York" }
+Output: {"name":"John","age":30,"city":"New York"}
+
+Pretty Print:
+
+Description: The pretty print feature formats messy JSON data into a human-readable form, with proper indentation and line breaks, making it easy to inspect and debug.
+
+Usage: Perfect for developers working with JSON data who need to view and analyze it in an organized way.
+
+Output Example:
+Input: {"name":"John","age":30,"city":"New York"}
+Output:
+
+json
+Copy
+Edit
+{
+  "name": "John",
+  "age": 30,
+  "city": "New York"
+}
+Validation:
+
+Description: This feature checks whether the provided JSON data is valid and conforms to the correct syntax. If the JSON is malformed or contains errors, it provides feedback on where and what the issue is.
+
+Usage: Useful for developers who need to ensure that their JSON is well-formed before using it in APIs or applications.
+
+Output Example:
+Input: {"name": "John", "age": 30, "city": "New York" (missing closing brace)
+Output: "Error: Unexpected end of JSON input" or a specific error message with the line number.
+
+Compare Two JSON Files:
+
+Description: This feature allows users to compare two JSON objects and highlight the differences between them. It is particularly useful when analyzing changes between two versions of JSON data or configurations.
+
+Usage: Great for version control or when you need to identify changes in data between two different sources.
+
+Output Example:
+Input JSON 1:
+
+json
+Copy
+Edit
+{
+  "name": "John",
+  "age": 30,
+  "city": "New York"
+}
+Input JSON 2:
+
+json
+Copy
+Edit
+{
+  "name": "John",
+  "age": 31,
+  "city": "New York"
+}
+Output:
+
+Difference in "age": 30 vs 31
+
+JSON to CSV Conversion:
+
+Description: This feature converts JSON data into CSV format, making it easier to analyze the data in spreadsheet applications like Excel. It is especially useful for transforming structured data (like API responses) into a tabular format.
+
+Usage: Useful for working with JSON data that needs to be exported for reporting, analysis, or further manipulation in a spreadsheet.
+
+Output Example:
+Input JSON:
+
+json
+Copy
+Edit
+[
+  { "name": "John", "age": 30, "city": "New York" },
+  { "name": "Jane", "age": 25, "city": "Los Angeles" }
+]
+Output CSV:
+
+pgsql
+Copy
+Edit
+name,age,city
+John,30,New York
+Jane,25,Los Angeles
