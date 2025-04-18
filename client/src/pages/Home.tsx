@@ -59,15 +59,8 @@ export default function Home() {
 
       <main className="flex-1">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            <div className="lg:col-span-3">
-              <JsonFormatter />
-            </div>
-            <div className="hidden lg:block">
-              <div className="sticky top-4">
-                <AdPlaceholder position="sidebar" />
-              </div>
-            </div>
+          <div className="w-full">
+            <JsonFormatter />
           </div>
         </div>
 
