@@ -5,9 +5,15 @@ interface NotificationProps {
 }
 
 const Notification = ({ message, isSuccess, isVisible }: NotificationProps) => {
-  const bgColor = isSuccess ? "bg-green-50" : "bg-red-50";
-  const textColor = isSuccess ? "text-green-800" : "text-red-800";
-  const iconColor = isSuccess ? "text-green-500" : "text-red-500";
+  const bgColor = isSuccess 
+    ? "bg-green-50 dark:bg-green-950" 
+    : "bg-red-50 dark:bg-red-950";
+  const textColor = isSuccess 
+    ? "text-green-800 dark:text-green-300" 
+    : "text-red-800 dark:text-red-300";
+  const iconColor = isSuccess 
+    ? "text-green-500" 
+    : "text-red-500";
 
   return (
     <div 

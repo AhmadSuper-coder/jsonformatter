@@ -94,14 +94,14 @@ const CompareTab = ({ showNotification }: CompareTabProps) => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
       {/* First JSON Input */}
-      <div className="bg-white rounded-lg shadow">
-        <div className="px-4 py-3 border-b border-gray-200">
-          <h2 className="text-lg font-medium text-gray-900">First JSON</h2>
+      <div className="bg-card rounded-lg shadow">
+        <div className="px-4 py-3 border-b border-border">
+          <h2 className="text-lg font-medium text-card-foreground">First JSON</h2>
         </div>
         <div className="p-4">
           <textarea
             id="compareInput1"
-            className="block w-full h-64 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary font-mono text-sm"
+            className="block w-full h-64 px-3 py-2 border border-input rounded-md shadow-sm bg-background text-foreground focus:outline-none focus:ring-primary focus:border-primary font-mono text-sm"
             placeholder="Paste your first JSON data here..."
             value={input1}
             onChange={(e) => setInput1(e.target.value)}
@@ -110,14 +110,14 @@ const CompareTab = ({ showNotification }: CompareTabProps) => {
       </div>
       
       {/* Second JSON Input */}
-      <div className="bg-white rounded-lg shadow">
-        <div className="px-4 py-3 border-b border-gray-200">
-          <h2 className="text-lg font-medium text-gray-900">Second JSON</h2>
+      <div className="bg-card rounded-lg shadow">
+        <div className="px-4 py-3 border-b border-border">
+          <h2 className="text-lg font-medium text-card-foreground">Second JSON</h2>
         </div>
         <div className="p-4">
           <textarea
             id="compareInput2"
-            className="block w-full h-64 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary font-mono text-sm"
+            className="block w-full h-64 px-3 py-2 border border-input rounded-md shadow-sm bg-background text-foreground focus:outline-none focus:ring-primary focus:border-primary font-mono text-sm"
             placeholder="Paste your second JSON data here..."
             value={input2}
             onChange={(e) => setInput2(e.target.value)}
@@ -128,13 +128,13 @@ const CompareTab = ({ showNotification }: CompareTabProps) => {
       {/* Comparison Controls */}
       <div className="lg:col-span-2 flex justify-center space-x-3 py-2">
         <button 
-          className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-primary hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+          className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-primary-foreground bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
           onClick={handleCompareJson}
         >
           Compare
         </button>
         <button 
-          className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+          className="inline-flex items-center px-4 py-2 border border-input text-sm font-medium rounded-md text-foreground bg-background hover:bg-muted focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
           onClick={handleClear}
         >
           Clear
@@ -142,35 +142,35 @@ const CompareTab = ({ showNotification }: CompareTabProps) => {
       </div>
       
       {/* Comparison Result */}
-      <div className="lg:col-span-2 bg-white rounded-lg shadow">
-        <div className="px-4 py-3 border-b border-gray-200">
-          <h2 className="text-lg font-medium text-gray-900">Comparison Result</h2>
+      <div className="lg:col-span-2 bg-card rounded-lg shadow">
+        <div className="px-4 py-3 border-b border-border">
+          <h2 className="text-lg font-medium text-card-foreground">Comparison Result</h2>
         </div>
         <div className="p-4">
           <div 
             id="compareOutput" 
-            className="block w-full h-80 px-3 py-2 bg-gray-50 border border-gray-300 rounded-md shadow-inner overflow-auto font-mono text-sm"
+            className="block w-full h-80 px-3 py-2 bg-muted border border-input rounded-md shadow-inner overflow-auto font-mono text-sm text-foreground"
           >
             {error ? (
-              <div className="p-3 bg-red-50 rounded-md text-red-700">
+              <div className="p-3 bg-red-50 dark:bg-red-950 rounded-md text-red-700 dark:text-red-400">
                 Error: {error}
               </div>
             ) : differences === null ? (
-              <div className="text-gray-500 text-sm">
+              <div className="text-muted-foreground text-sm">
                 Compare two JSON objects to see the differences here...
               </div>
             ) : differences.length === 0 ? (
-              <div className="p-3 bg-green-50 rounded-md text-green-700">
+              <div className="p-3 bg-green-50 dark:bg-green-950 rounded-md text-green-700 dark:text-green-400">
                 No differences found. The JSON objects are identical.
               </div>
             ) : (
               <div className="p-3">
-                <p className="font-medium text-gray-700 mb-3">Differences found:</p>
+                <p className="font-medium text-foreground mb-3">Differences found:</p>
                 <ul className="space-y-2">
                   {differences.map((diff, index) => (
                     <li key={index}>
                       <span className="font-medium">Path: </span>
-                      <code className="bg-gray-100 px-1 rounded">{diff.path}</code>
+                      <code className="bg-background px-1 rounded">{diff.path}</code>
                       <div className="flex flex-col md:flex-row md:space-x-3 space-y-2 md:space-y-0 mt-1">
                         <div className="diff-removed rounded px-2 py-1">
                           <span className="font-medium">First: </span>
@@ -188,9 +188,9 @@ const CompareTab = ({ showNotification }: CompareTabProps) => {
             )}
           </div>
         </div>
-        <div className="px-4 py-3 bg-gray-50 flex justify-end space-x-3 rounded-b-lg">
+        <div className="px-4 py-3 bg-muted flex justify-end space-x-3 rounded-b-lg">
           <button 
-            className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-primary hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+            className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-primary-foreground bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
             onClick={handleCopyToClipboard}
             disabled={!differences && !error}
           >

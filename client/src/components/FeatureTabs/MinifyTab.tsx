@@ -47,28 +47,28 @@ const MinifyTab = ({ showNotification }: MinifyTabProps) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       {/* Input Section */}
-      <div className="bg-white rounded-lg shadow">
-        <div className="px-4 py-3 border-b border-gray-200">
-          <h2 className="text-lg font-medium text-gray-900">Input JSON</h2>
+      <div className="bg-card rounded-lg shadow">
+        <div className="px-4 py-3 border-b border-border">
+          <h2 className="text-lg font-medium text-card-foreground">Input JSON</h2>
         </div>
         <div className="p-4">
           <textarea
             id="minifyInput"
-            className="block w-full h-80 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary font-mono text-sm"
+            className="block w-full h-80 px-3 py-2 border border-input rounded-md shadow-sm bg-background text-foreground focus:outline-none focus:ring-primary focus:border-primary font-mono text-sm"
             placeholder="Paste your JSON data here..."
             value={input}
             onChange={(e) => setInput(e.target.value)}
           />
         </div>
-        <div className="px-4 py-3 bg-gray-50 flex justify-end space-x-3 rounded-b-lg">
+        <div className="px-4 py-3 bg-muted flex justify-end space-x-3 rounded-b-lg">
           <button 
-            className="inline-flex items-center px-3 py-2 border border-gray-300 text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+            className="inline-flex items-center px-3 py-2 border border-input text-sm leading-4 font-medium rounded-md text-foreground bg-background hover:bg-muted focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
             onClick={handleClear}
           >
             Clear
           </button>
           <button 
-            className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-primary hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+            className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-primary-foreground bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
             onClick={handleMinifyJson}
           >
             Minify
@@ -77,21 +77,21 @@ const MinifyTab = ({ showNotification }: MinifyTabProps) => {
       </div>
       
       {/* Output Section */}
-      <div className="bg-white rounded-lg shadow">
-        <div className="px-4 py-3 border-b border-gray-200">
-          <h2 className="text-lg font-medium text-gray-900">Minified JSON</h2>
+      <div className="bg-card rounded-lg shadow">
+        <div className="px-4 py-3 border-b border-border">
+          <h2 className="text-lg font-medium text-card-foreground">Minified JSON</h2>
         </div>
         <div className="p-4">
           <pre 
             id="minifyOutput" 
-            className="block w-full h-80 px-3 py-2 bg-gray-50 border border-gray-300 rounded-md shadow-inner overflow-auto font-mono text-sm"
+            className="block w-full h-80 px-3 py-2 bg-muted border border-input rounded-md shadow-inner overflow-auto font-mono text-sm text-foreground"
           >
             {output || "Minify a JSON to see the result here..."}
           </pre>
         </div>
-        <div className="px-4 py-3 bg-gray-50 flex justify-end space-x-3 rounded-b-lg">
+        <div className="px-4 py-3 bg-muted flex justify-end space-x-3 rounded-b-lg">
           <button 
-            className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-primary hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+            className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-primary-foreground bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
             onClick={handleCopyToClipboard}
             disabled={!output}
           >
