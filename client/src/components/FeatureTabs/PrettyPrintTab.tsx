@@ -19,6 +19,7 @@ const PrettyPrintTab = ({ showNotification }: PrettyPrintTabProps) => {
   "hobbies": ["reading", "hiking", "coding"]
 }`);
   const [output, setOutput] = useState<string>("");
+  const [isExpanded, setIsExpanded] = useState(false);
   const [formattedHtml, setFormattedHtml] = useState<string>("");
   const { copyToClipboard } = useCopyToClipboard();
 
@@ -80,28 +81,35 @@ const PrettyPrintTab = ({ showNotification }: PrettyPrintTabProps) => {
         </div>
       </div>
       
-      {/* Output Section */}
-      <div className="bg-card rounded-lg shadow">
-        <div className="px-4 py-3 border-b border-border">
-          <h2 className="text-lg font-medium text-card-foreground">Formatted JSON</h2>
-        </div>
-        <div className="p-4">
-          <pre 
-            id="jsonOutput" 
-            className="block w-full h-80 px-3 py-2 bg-muted border border-input rounded-md shadow-inner overflow-auto font-mono text-sm"
-            dangerouslySetInnerHTML={{ __html: formattedHtml || "Format a JSON to see the result here..." }}
-          />
-        </div>
-        <div className="px-4 py-3 bg-muted flex justify-end space-x-3 rounded-b-lg">
-          <button 
-            className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-primary-foreground bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
-            onClick={handleCopyToClipboard}
-            disabled={!output}
-          >
-            Copy to Clipboard
-          </button>
-        </div>
+    {/* Output Section */}
+    <div className="bg-card rounded-lg shadow">
+      <div className="px-4 py-3 border-b border-border flex justify-between items-center">
+        <h2 className="text-lg font-medium text-card-foreground">Formatted JSON</h2>
+        <button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="text-primary text-sm hover:underline focus:outline-none"
+        >
+          {isExpanded ? "Collapse" : "Expand"}
+        </button>
       </div>
+      <div className="p-4">
+        <pre 
+          id="jsonOutput" 
+          className={`block w-full ${isExpanded ? 'h-[600px]' : 'h-80'} px-3 py-2 bg-muted border border-input rounded-md shadow-inner overflow-auto font-mono text-sm transition-all duration-300`}
+          dangerouslySetInnerHTML={{ __html: formattedHtml || "Format a JSON to see the result here..." }}
+        />
+      </div>
+      <div className="px-4 py-3 bg-muted flex justify-end space-x-3 rounded-b-lg">
+        <button 
+          className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-primary-foreground bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+          onClick={handleCopyToClipboard}
+          disabled={!output}
+        >
+          Copy to Clipboard
+        </button>
+      </div>
+    </div>
+
     </div>
   );
 };
