@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <Layout>
       <div className="bg-primary/5 py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-2">
           <div className="text-center">
             {/* <h1 className="text-3xl md:text-4xl font-bold text-foreground">
               JSON Formatter Tool
