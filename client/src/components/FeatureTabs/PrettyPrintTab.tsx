@@ -3,6 +3,7 @@ import { useCopyToClipboard } from "@/hooks/use-clipboard";
 import { formatJSON, syntaxHighlight } from "@/utils/jsonFormatters";
 import { ResizableBox } from "react-resizable";
 import "react-resizable/css/styles.css";
+import "./ResizableBoxCustom.css"; // <-- (we'll add small CSS below)
 
 interface PrettyPrintTabProps {
   showNotification: (message: string, isSuccess?: boolean) => void;
@@ -64,7 +65,8 @@ const PrettyPrintTab = ({ showNotification }: PrettyPrintTabProps) => {
             height={320}
             minConstraints={[300, 200]}
             maxConstraints={[800, 600]}
-            resizeHandles={['se', 'e', 's']}
+            resizeHandles={['n', 'e', 's', 'w', 'ne', 'nw', 'se', 'sw']} // <-- resizable from all sides
+            className="custom-resizable-box" // <-- adding custom class
           >
             <textarea
               id="jsonInput"
@@ -102,7 +104,8 @@ const PrettyPrintTab = ({ showNotification }: PrettyPrintTabProps) => {
             height={320}
             minConstraints={[300, 200]}
             maxConstraints={[800, 600]}
-            resizeHandles={['se', 'e', 's']}
+            resizeHandles={['n', 'e', 's', 'w', 'ne', 'nw', 'se', 'sw']}
+            className="custom-resizable-box"
           >
             <pre 
               id="jsonOutput" 
