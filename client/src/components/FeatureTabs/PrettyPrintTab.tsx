@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useCopyToClipboard } from "@/hooks/use-clipboard";
 import { formatJSON, syntaxHighlight } from "@/utils/jsonFormatters";
 
@@ -21,6 +21,7 @@ const PrettyPrintTab = ({ showNotification }: PrettyPrintTabProps) => {
   const [output, setOutput] = useState<string>("");
   const [formattedHtml, setFormattedHtml] = useState<string>("");
   const { copyToClipboard } = useCopyToClipboard();
+  const outputRef = useRef<HTMLPreElement>(null);
 
   const handleFormatJson = () => {
     try {
@@ -46,6 +47,29 @@ const PrettyPrintTab = ({ showNotification }: PrettyPrintTabProps) => {
     setInput("");
     setOutput("");
     setFormattedHtml("");
+  };
+
+  // Resize logic for the output area
+  const handleResize = (e: React.MouseEvent) => {
+    if (outputRef.current) {
+      const initialHeight = outputRef.current.clientHeight;
+      const initialY = e.clientY;
+
+      const onMouseMove = (moveEvent: MouseEvent) => {
+        const newHeight = initialHeight + (moveEvent.clientY - initialY);
+        if (newHeight > 100) {
+          outputRef.current.style.height = `${newHeight}px`;
+        }
+      };
+
+      const onMouseUp = () => {
+        document.removeEventListener("mousemove", onMouseMove);
+        document.removeEventListener("mouseup", onMouseUp);
+      };
+
+      document.addEventListener("mousemove", onMouseMove);
+      document.addEventListener("mouseup", onMouseUp);
+    }
   };
 
   return (
@@ -81,17 +105,23 @@ const PrettyPrintTab = ({ showNotification }: PrettyPrintTabProps) => {
       </div>
       
       {/* Output Section */}
-      <div className="bg-card rounded-lg shadow">
+      <div className="bg-card rounded-lg shadow relative">
         <div className="px-4 py-3 border-b border-border">
           <h2 className="text-lg font-medium text-card-foreground">Formatted JSON</h2>
         </div>
         <div className="p-4">
-          <pre 
-            id="jsonOutput" 
+          <pre
+            ref={outputRef}
+            id="jsonOutput"
             className="block w-full h-80 px-3 py-2 bg-muted border border-input rounded-md shadow-inner overflow-auto font-mono text-sm"
             dangerouslySetInnerHTML={{ __html: formattedHtml || "Format a JSON to see the result here..." }}
           />
         </div>
+        {/* Resize Handle */}
+        <div
+          className="absolute bottom-0 left-0 w-full h-6 bg-gray-400 cursor-ns-resize"
+          onMouseDown={handleResize}
+        />
         <div className="px-4 py-3 bg-muted flex justify-end space-x-3 rounded-b-lg">
           <button 
             className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-primary-foreground bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
