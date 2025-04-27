@@ -84,7 +84,7 @@ const MinifyTab = ({ showNotification }: MinifyTabProps) => {
         <div className="p-4">
           <pre 
             id="minifyOutput" 
-            className="block w-full h-80 px-3 py-2 bg-muted border border-input rounded-md shadow-inner overflow-auto font-mono text-sm text-foreground"
+            className="block w-full h-80 px-3 py-2 bg-muted border border-input rounded-md shadow-inner overflow-auto font-mono text-sm text-foreground resize-y"
           >
             {output || "Minify a JSON to see the result here..."}
           </pre>

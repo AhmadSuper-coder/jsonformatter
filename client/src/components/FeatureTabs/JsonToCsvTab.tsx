@@ -109,7 +109,7 @@ const JsonToCsvTab = ({ showNotification }: JsonToCsvTabProps) => {
         <div className="p-4">
           <pre 
             id="csvOutput" 
-            className="block w-full h-80 px-3 py-2 bg-muted border border-input rounded-md shadow-inner overflow-auto font-mono text-sm text-foreground"
+            className="block w-full h-80 px-3 py-2 bg-muted border border-input rounded-md shadow-inner overflow-auto font-mono text-sm text-foreground resize-y"
           >
             {output || "Convert a JSON to CSV to see the result here..."}
           </pre>
