@@ -63,8 +63,8 @@ const PrettyPrintTab = ({ showNotification }: PrettyPrintTabProps) => {
           <ResizableBox
             width={400}
             height={320}
-            minConstraints={[300, 200]}
-            maxConstraints={[800, 600]}
+            minConstraints={[400, 320]}
+            maxConstraints={[400, 2000]}
             resizeHandles={['n', 'e', 's', 'w', 'ne', 'nw', 'se', 'sw']} // <-- resizable from all sides
             className="custom-resizable-box" // <-- adding custom class
           >
@@ -102,8 +102,8 @@ const PrettyPrintTab = ({ showNotification }: PrettyPrintTabProps) => {
           <ResizableBox
             width={400}
             height={320}
-            minConstraints={[300, 200]}
-            maxConstraints={[800, 600]}
+            minConstraints={[400, 320]}
+            maxConstraints={[800, 3200]}
             resizeHandles={['n', 'e', 's', 'w', 'ne', 'nw', 'se', 'sw']}
             className="custom-resizable-box"
           >
