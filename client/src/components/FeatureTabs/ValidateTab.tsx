@@ -53,7 +53,7 @@ const ValidateTab = ({ showNotification }: ValidateTabProps) => {
         <div className="p-4">
           <textarea
             id="validateInput"
-            className="block w-full h-80 px-3 py-2 border border-input rounded-md shadow-sm bg-background text-foreground focus:outline-none focus:ring-primary focus:border-primary font-mono text-sm"
+            className="block w-full h-[52vh] px-3 py-2 border border-input rounded-md shadow-sm bg-background text-foreground focus:outline-none focus:ring-primary focus:border-primary font-mono text-sm"
             placeholder="Paste your JSON data here..."
             value={input}
             onChange={(e) => setInput(e.target.value)}
@@ -81,7 +81,7 @@ const ValidateTab = ({ showNotification }: ValidateTabProps) => {
           <h2 className="text-lg font-medium text-card-foreground">Validation Result</h2>
         </div>
         <div className="p-4">
-          <div id="validateOutput" className="block w-full h-80 px-3 py-2 bg-muted border border-input rounded-md shadow-inner overflow-auto text-foreground resize-y">
+          <div id="validateOutput" className="block w-full h-[52vh] px-3 py-2 bg-muted border border-input rounded-md shadow-inner overflow-auto text-foreground resize-y">
             {validationResult === null ? (
               <div className="text-muted-foreground text-sm">
                 Validate a JSON to see the result here...

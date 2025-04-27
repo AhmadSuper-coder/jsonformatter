@@ -101,7 +101,7 @@ const CompareTab = ({ showNotification }: CompareTabProps) => {
         <div className="p-4">
           <textarea
             id="compareInput1"
-            className="block w-full h-64 px-3 py-2 border border-input rounded-md shadow-sm bg-background text-foreground focus:outline-none focus:ring-primary focus:border-primary font-mono text-sm"
+            className="block w-full h-[52vh] px-3 py-2 border border-input rounded-md shadow-sm bg-background text-foreground focus:outline-none focus:ring-primary focus:border-primary font-mono text-sm"
             placeholder="Paste your first JSON data here..."
             value={input1}
             onChange={(e) => setInput1(e.target.value)}
@@ -117,7 +117,7 @@ const CompareTab = ({ showNotification }: CompareTabProps) => {
         <div className="p-4">
           <textarea
             id="compareInput2"
-            className="block w-full h-64 px-3 py-2 border border-input rounded-md shadow-sm bg-background text-foreground focus:outline-none focus:ring-primary focus:border-primary font-mono text-sm"
+            className="block w-full h-[52vh] px-3 py-2 border border-input rounded-md shadow-sm bg-background text-foreground focus:outline-none focus:ring-primary focus:border-primary font-mono text-sm"
             placeholder="Paste your second JSON data here..."
             value={input2}
             onChange={(e) => setInput2(e.target.value)}

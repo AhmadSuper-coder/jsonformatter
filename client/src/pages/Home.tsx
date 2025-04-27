@@ -37,7 +37,7 @@ export default function Home() {
       </div> */}
 
       <div className="flex-1">
-        <div className="max-w-full mx-auto px-2 sm:px-6 lg:px-8 py-3">
+        <div className="max-w-full mx-auto px-6 sm:px-6 lg:px-8 py-3">
           <div className="w-full">
             <JsonFormatter />
           </div>

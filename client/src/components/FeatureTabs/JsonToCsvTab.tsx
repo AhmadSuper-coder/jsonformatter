@@ -79,7 +79,7 @@ const JsonToCsvTab = ({ showNotification }: JsonToCsvTabProps) => {
         <div className="p-4">
           <textarea
             id="csvInput"
-            className="block w-full h-80 px-3 py-2 border border-input rounded-md shadow-sm bg-background text-foreground focus:outline-none focus:ring-primary focus:border-primary font-mono text-sm"
+            className="block w-full h-[52vh] px-3 py-2 border border-input rounded-md shadow-sm bg-background text-foreground focus:outline-none focus:ring-primary focus:border-primary font-mono text-sm"
             placeholder="Paste your JSON data here (array of objects)..."
             value={input}
             onChange={(e) => setInput(e.target.value)}
@@ -109,7 +109,7 @@ const JsonToCsvTab = ({ showNotification }: JsonToCsvTabProps) => {
         <div className="p-4">
           <pre 
             id="csvOutput" 
-            className="block w-full h-80 px-3 py-2 bg-muted border border-input rounded-md shadow-inner overflow-auto font-mono text-sm text-foreground resize-y"
+            className="block w-full h-[52vh] px-3 py-2 bg-muted border border-input rounded-md shadow-inner overflow-auto font-mono text-sm text-foreground resize-y"
           >
             {output || "Convert a JSON to CSV to see the result here..."}
           </pre>
