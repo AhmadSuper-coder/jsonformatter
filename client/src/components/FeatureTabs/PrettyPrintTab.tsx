@@ -50,7 +50,6 @@ const PrettyPrintTab = ({ showNotification }: PrettyPrintTabProps) => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      
       {/* Input Section */}
       <div className="bg-card rounded-lg shadow">
         <div className="px-4 py-3 border-b border-border">
@@ -59,7 +58,7 @@ const PrettyPrintTab = ({ showNotification }: PrettyPrintTabProps) => {
         <div className="p-4">
           <textarea
             id="jsonInput"
-            className="block w-full h-80 px-3 py-2 border border-input rounded-md shadow-sm bg-background text-foreground focus:outline-none focus:ring-primary focus:border-primary font-mono text-sm resize"
+            className="block w-full h-80 px-3 py-2 border border-input rounded-md shadow-sm bg-background text-foreground focus:outline-none focus:ring-primary focus:border-primary font-mono text-sm"
             placeholder="Paste your JSON data here..."
             value={input}
             onChange={(e) => setInput(e.target.value)}
@@ -89,7 +88,7 @@ const PrettyPrintTab = ({ showNotification }: PrettyPrintTabProps) => {
         <div className="p-4">
           <pre 
             id="jsonOutput" 
-            className="block w-full h-80 px-3 py-2 bg-muted border border-input rounded-md shadow-inner overflow-auto font-mono text-sm resize"
+            className="block w-full h-80 px-3 py-2 bg-muted border border-input rounded-md shadow-inner overflow-auto font-mono text-sm"
             dangerouslySetInnerHTML={{ __html: formattedHtml || "Format a JSON to see the result here..." }}
           />
         </div>
@@ -103,7 +102,6 @@ const PrettyPrintTab = ({ showNotification }: PrettyPrintTabProps) => {
           </button>
         </div>
       </div>
-
     </div>
   );
 };
