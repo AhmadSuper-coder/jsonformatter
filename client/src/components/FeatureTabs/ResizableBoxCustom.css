@@ -6,9 +6,9 @@
   
   .custom-resizable-box .react-resizable-handle {
     background: rgba(206, 7, 7, 0.932);
-    width: 12px;
-    height: 12px;
-    border-radius: 2px;
+    width: 6px;
+    height: 6px;
+    border-radius: 1px;
     position: absolute;
   }
   
