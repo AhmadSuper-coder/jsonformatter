@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useCopyToClipboard } from "@/hooks/use-clipboard";
 import { formatJSON, syntaxHighlight } from "@/utils/jsonFormatters";
+import { ResizableBox } from "react-resizable";
+import "react-resizable/css/styles.css";
 
 interface PrettyPrintTabProps {
   showNotification: (message: string, isSuccess?: boolean) => void;
@@ -57,13 +59,21 @@ const PrettyPrintTab = ({ showNotification }: PrettyPrintTabProps) => {
           <h2 className="text-lg font-medium text-card-foreground">Input JSON</h2>
         </div>
         <div className="p-4">
-          <textarea
-            id="jsonInput"
-            className="block w-full h-80 px-3 py-2 border border-input rounded-md shadow-sm bg-background text-foreground focus:outline-none focus:ring-primary focus:border-primary font-mono text-sm resize"
-            placeholder="Paste your JSON data here..."
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-          />
+          <ResizableBox
+            width={400}
+            height={320}
+            minConstraints={[300, 200]}
+            maxConstraints={[800, 600]}
+            resizeHandles={['se', 'e', 's']}
+          >
+            <textarea
+              id="jsonInput"
+              className="w-full h-full p-3 border border-input rounded-md bg-background text-foreground focus:outline-none focus:ring-primary focus:border-primary font-mono text-sm resize-none overflow-auto"
+              placeholder="Paste your JSON data here..."
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+            />
+          </ResizableBox>
         </div>
         <div className="px-4 py-3 bg-muted flex justify-end space-x-3 rounded-b-lg">
           <button 
@@ -87,11 +97,19 @@ const PrettyPrintTab = ({ showNotification }: PrettyPrintTabProps) => {
           <h2 className="text-lg font-medium text-card-foreground">Formatted JSON</h2>
         </div>
         <div className="p-4">
-          <pre 
-            id="jsonOutput" 
-            className="block w-full h-80 px-3 py-2 bg-muted border border-input rounded-md shadow-inner overflow-auto font-mono text-sm resize"
-            dangerouslySetInnerHTML={{ __html: formattedHtml || "Format a JSON to see the result here..." }}
-          />
+          <ResizableBox
+            width={400}
+            height={320}
+            minConstraints={[300, 200]}
+            maxConstraints={[800, 600]}
+            resizeHandles={['se', 'e', 's']}
+          >
+            <pre 
+              id="jsonOutput" 
+              className="w-full h-full p-3 bg-muted border border-input rounded-md shadow-inner overflow-auto font-mono text-sm resize-none"
+              dangerouslySetInnerHTML={{ __html: formattedHtml || "Format a JSON to see the result here..." }}
+            />
+          </ResizableBox>
         </div>
         <div className="px-4 py-3 bg-muted flex justify-end space-x-3 rounded-b-lg">
           <button 
