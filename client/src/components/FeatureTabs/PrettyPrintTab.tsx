@@ -58,7 +58,7 @@ const PrettyPrintTab = ({ showNotification }: PrettyPrintTabProps) => {
         <div className="p-4">
           <textarea
             id="jsonInput"
-            className="block w-full h-96 px-3 py-2 border border-input rounded-md shadow-sm bg-background text-foreground focus:outline-none focus:ring-primary focus:border-primary font-mono text-sm"
+            className="block w-full h-[90vh] px-3 py-2 border border-input rounded-md shadow-sm bg-background text-foreground focus:outline-none focus:ring-primary focus:border-primary font-mono text-sm"
             placeholder="Paste your JSON data here..."
             value={input}
             onChange={(e) => setInput(e.target.value)}
