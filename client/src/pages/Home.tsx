@@ -18,26 +18,26 @@ export default function Home() {
   return (
     <Layout>
       <div className="bg-primary/5 py-5">
-        <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-2">
+        <div className="max-w-7xl mx-auto px-1 sm:px-4 lg:px-2">
           <div className="text-center">
             {/* <h1 className="text-3xl md:text-4xl font-bold text-foreground">
               JSON Formatter Tool
             </h1> */}
-            <p className="mt-3 max-w-3xl mx-auto text-xl text-muted-foreground">
+            <p className="mt-2 max-w-3xl mx-auto text-xl text-muted-foreground">
               Format, minify, validate, compare and convert JSON with our free online tool
             </p>
           </div>
         </div>
       </div>
 
-      <div className="py-2">
+      {/* <div className="py-0">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* <AdPlaceholder position="top" /> */}
+          <AdPlaceholder position="top" />
         </div>
-      </div>
+      </div> */}
 
       <div className="flex-1">
-        <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="max-w-full mx-auto px-2 sm:px-6 lg:px-8 py-3">
           <div className="w-full">
             <JsonFormatter />
           </div>
