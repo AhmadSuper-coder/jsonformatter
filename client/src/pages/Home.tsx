@@ -99,11 +99,45 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="py-4 mb-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="bg-card border border-border rounded-lg p-6">
+            <h2 className="text-2xl font-bold text-foreground mb-4">Frequently Asked Questions (FAQ)</h2>
+            <div className="prose dark:prose-invert max-w-none">
+              <h3>Why JSON Formatter?</h3>
+              <p>
+          JSON Formatter is an essential tool for developers and users who work with JSON data. It helps to format, beautify, and validate JSON effortlessly, ensuring that your data is readable and error-free. By using a JSON Formatter, you can quickly identify issues, debug API responses, and make your JSON data more presentable and easier to understand.
+              </p>
+
+              <h3>Why format JSON Online?</h3>
+              <p>
+          Formatting JSON online is a fast and convenient solution for anyone working with JSON data. It eliminates the need to install additional software or tools, making it accessible from any device or browser. Whether you're on a desktop, tablet, or mobile device, you can format your JSON data instantly without any hassle. Online tools also provide additional features like validation and minification, making them a versatile choice for developers.
+              </p>
+
+              <h3>How do I format a JSON file?</h3>
+              <p>
+          Formatting a JSON file is simple with our tool. All you need to do is paste your JSON data into the input field and click the "Format" button. The tool will automatically process your data and display it with proper indentation and syntax highlighting. This makes your JSON more readable and easier to work with, especially when dealing with complex or nested structures.
+              </p>
+
+
+              <h3>Is login required to save JSON data?</h3>
+              <p>
+          No, our JSON Formatter tool does not require any login or registration. You can use it freely without sharing any personal information. This ensures a seamless and hassle-free experience for users. Additionally, since all processing happens locally in your browser, your data remains private and secure, giving you peace of mind while working with sensitive information.
+              </p>
+
+              <h3>Have you accidentally saved your JSON data?</h3>
+              <p>
+          Don't worry! Our tool is designed with privacy and security in mind. All processing happens locally in your browser, which means your JSON data is never sent to any server. This ensures that your data remains completely private and secure. Even if you accidentally save your JSON data, you can rest assured that it has not been shared or stored anywhere outside your device.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Uncomment the following section to add an ad placeholder at the bottom */}
+        {/* <div className="py-4 mb-6">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <AdPlaceholder position="bottom" />
           </div>
-        </div>
+        </div> */}
       </div>
     </Layout>
   );
