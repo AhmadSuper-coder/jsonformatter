@@ -23,19 +23,19 @@ export default function Home() {
             <div className="inline-flex flex-wrap justify-center gap-2">
               <h1 className="text-2xl md:text-2xl font-bold text-foreground inline-block">
               JSON Formatter Tool
-              </h1>
+              </h1>,
               <h1 className="text-2xl md:text-2xl font-bold text-foreground inline-block">
               Format JSON
-              </h1>
+              </h1>,
               <h1 className="text-2xl md:text-2xl font-bold text-foreground inline-block">
               Minify JSON
-              </h1>
+              </h1>,
               <h1 className="text-2xl md:text-2xl font-bold text-foreground inline-block">
               Validate JSON
-              </h1>
+              </h1>,
               <h1 className="text-2xl md:text-2xl font-bold text-foreground inline-block">
               Compare JSON
-              </h1>
+              </h1>,
               <h1 className="text-2xl md:text-2xl font-bold text-foreground inline-block">
               Convert JSON
               </h1>
