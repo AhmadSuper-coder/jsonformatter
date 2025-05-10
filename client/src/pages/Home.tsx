@@ -20,12 +20,29 @@ export default function Home() {
       <div className="bg-primary/5 py-5">
         <div className="max-w-7xl mx-auto px-1 sm:px-4 lg:px-2">
           <div className="text-center">
-            <h1 className="text-2xl md:text-2xl font-bold text-foreground">
+            <div className="inline-flex flex-wrap justify-center gap-2">
+              <h1 className="text-2xl md:text-2xl font-bold text-foreground inline-block">
               JSON Formatter Tool
-            </h1>
-            <p className="mt-2 max-w-3xl mx-auto text-xl text-muted-foreground">
+              </h1>
+              <h1 className="text-2xl md:text-2xl font-bold text-foreground inline-block">
+              Format JSON
+              </h1>
+              <h1 className="text-2xl md:text-2xl font-bold text-foreground inline-block">
+              Minify JSON
+              </h1>
+              <h1 className="text-2xl md:text-2xl font-bold text-foreground inline-block">
+              Validate JSON
+              </h1>
+              <h1 className="text-2xl md:text-2xl font-bold text-foreground inline-block">
+              Compare JSON
+              </h1>
+              <h1 className="text-2xl md:text-2xl font-bold text-foreground inline-block">
+              Convert JSON
+              </h1>
+            </div>
+            {/* <p className="mt-2 max-w-3xl mx-auto text-xl text-muted-foreground">
               Format, minify, validate, compare and convert JSON with our free online tool
-            </p>
+            </p> */}
           </div>
         </div>
       </div>
