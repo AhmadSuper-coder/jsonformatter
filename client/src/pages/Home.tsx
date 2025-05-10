@@ -20,9 +20,9 @@ export default function Home() {
       <div className="bg-primary/5 py-5">
         <div className="max-w-7xl mx-auto px-1 sm:px-4 lg:px-2">
           <div className="text-center">
-            {/* <h1 className="text-3xl md:text-4xl font-bold text-foreground">
+            <h1 className="text-2xl md:text-2xl font-bold text-foreground">
               JSON Formatter Tool
-            </h1> */}
+            </h1>
             <p className="mt-2 max-w-3xl mx-auto text-xl text-muted-foreground">
               Format, minify, validate, compare and convert JSON with our free online tool
             </p>
