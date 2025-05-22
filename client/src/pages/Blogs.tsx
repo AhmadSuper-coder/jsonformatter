@@ -1,6 +1,6 @@
 // pages/Blogs.tsx
 import Link from "next/link";
-import { blogPosts } from "shared/blogData";
+import { blogPosts } from "./blogs/blogData";
 
 export default function Blogs() {
   return (
