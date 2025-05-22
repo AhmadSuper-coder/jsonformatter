@@ -1,7 +1,7 @@
 // pages/blogs/[slug].tsx
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
-import { blogPosts, BlogPost } from "shared/blogData";
+import { blogPosts, BlogPost } from "./blogData";
 
 export default function BlogPostPage({ post }: { post: BlogPost }) {
   if (!post) return <div>Post not found</div>;
