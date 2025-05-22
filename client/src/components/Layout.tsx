@@ -25,6 +25,8 @@ export default function Layout({ children }: LayoutProps) {
               <Link href="/" className="text-muted-foreground hover:text-foreground">Home</Link>
               <Link href="/about" className="text-muted-foreground hover:text-foreground">About</Link>
               <Link href="/contact" className="text-muted-foreground hover:text-foreground">Contact</Link>
+              <Link href="/blogs" className="text-muted-foreground hover:text-foreground">Docs</Link>
+
             </nav>
             
             <div className="flex items-center space-x-4">
